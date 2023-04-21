@@ -22,6 +22,8 @@
   display: flex;
   align-items: stretch;
   height: 1.8em;
+  border: 0;
+  transition: 0.3s;
 }
 
 .heroes button:hover {
@@ -54,7 +56,7 @@
   display: inline-block;
   font-size: small;
   color: white;
-  padding: 0.8em 0.7em 0 0.7em;
+  padding: 0.5em 0.7em 0 0.7em;
   background-color: #405061;
   line-height: 1em;
   margin-right: 0.8em;
