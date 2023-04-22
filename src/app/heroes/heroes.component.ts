@@ -13,8 +13,14 @@ export class HeroesComponent {
 
   constructor(private heroService: HeroService) {}
 
+  /*
+  Synchronous
   getHeroes(): void {
     this.heroes = this.heroService.getHeroes();
+  }
+  */
+  getHeroes(): void {
+    this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
   }
 
   ngOnInit(): void {
