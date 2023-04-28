@@ -7,6 +7,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   { path: 'dashboard', component: DashboardComponent },
+
+  // Navigate to the dashboard automatically
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
 
 // Initialize the metadata and starts it listening for browser location changes
