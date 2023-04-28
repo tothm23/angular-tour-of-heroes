@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +10,7 @@ import { HeroService } from '../hero.service';
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css'],
 })
-export class HeroDetailComponent {
+export class HeroDetailComponent implements OnInit {
   @Input() hero?: Hero;
 
   constructor(
@@ -23,4 +23,14 @@ export class HeroDetailComponent {
     // An Angular service for interacting with the browser
     private location: Location
   ) {}
+
+  ngOnInit(): void {
+    this.getHero();
+  }
+
+  getHero(): void {
+    // Gets id from URL id param
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.heroService.getHero(id).subscribe((hero) => (this.hero = hero));
+  }
 }
