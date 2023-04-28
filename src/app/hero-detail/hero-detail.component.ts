@@ -1,9 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Hero } from '../hero';
-
+import { Component, /* Input, */ OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 @Component({
   selector: 'app-hero-detail',
@@ -11,7 +10,8 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./hero-detail.component.css'],
 })
 export class HeroDetailComponent implements OnInit {
-  @Input() hero?: Hero;
+  // @Input() hero?: Hero;
+  hero: Hero | undefined;
 
   constructor(
     // This component is interested in the route's parameters extracted from the URL
