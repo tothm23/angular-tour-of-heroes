@@ -39,9 +39,10 @@ export class HeroService {
     // This call is "is an observable of hero arrays"
     // Returns the hero arrays
     // Intercepts an Observable that failed, then passes the error to the error handling function (handleError)
-    return this.http
-      .get<Hero[]>(this.heroesUrl)
-      .pipe(catchError(this.handleError<Hero[]>('getHeroes', [])));
+    return this.http.get<Hero[]>(this.heroesUrl).pipe(
+      tap((_) => this.log('fetched heroes')),
+      catchError(this.handleError<Hero[]>('getHeroes', []))
+    );
   }
 
   /**
